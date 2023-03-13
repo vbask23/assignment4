@@ -15,7 +15,7 @@ do {
 // COLLECT OPERATION TO PERFORM (+,-,*,/) FROM USER
     opChoice = prompt(`Which operation would you like to perform on these numbers?\nAdd, subtract, multiply or divide? Write 'a', 's', 'm', or 'd'`).toLowerCase()
     if (opChoice !== 'a' && opChoice !== 's' && opChoice !== 'd' && opChoice !== 'm' ) {
-        alert(`You haven't entered which opration to perform. \nType 'a'(add), 's'(subtract), 'm'(multiply), or 'd'(divide)`)
+        alert(`You haven't entered which operation to perform. \nType 'a'(add), 's'(subtract), 'm'(multiply), or 'd'(divide)`)
     } else {
         break
     }
@@ -23,24 +23,26 @@ do {
 while (opChoice !== 'a' && opChoice !== 's' && opChoice !== 'd' && opChoice !== 'm' ) 
    
 // CHECK TO SEE WHAT OPERATION THEY'RE USING
-function checkOperation () {
-    switch (opChoice) {
-        case 'a': 
-            return opChoice = add(firstNum, secondNum)
-            break
-        case 's':
-            return opChoice = subtract(firstNum, secondNum)
-            break
-        case 'd':
-            return opChoice = divide(firstNum, secondNum)
-            break
-        case 'm':
-            return opChoice = multiply(firstNum, secondNum)
-            break
-        default:
-            break
-        }
-
+function checkOp() {
+    return opChoice, firstNum, secondNum
 }
+
 // CALL THE APPROPRIATE FUNCTION
-checkOperation()
+function appFunc() {
+    checkOp()
+    if (opChoice === 'a') {
+        add(firstNum, secondNum, opChoice)
+    } else if (opChoice === 's') {
+        subtract(firstNum, secondNum, opChoice)
+    } else if (opChoice === 'd') {
+        divide(firstNum, secondNum, opChoice)
+    } else {
+        multiply(firstNum, secondNum, opChoice)
+    }
+}
+
+appFunc()
+
+
+
+
